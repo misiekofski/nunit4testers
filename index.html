@@ -146,12 +146,12 @@ public void TestRange([Range(5,55)] int i)</code></pre>
 				<section>
 					<p>Assert.Throws (zwraca nam wyjątek, możemy później sprawdzić jego wiadomość)</p>
 					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/classic-assertions/Assert.Throws.html">Dokumentacja</a></p>
-					<pre><code>Assert.Throws<ArgumentException>(() => Klasa.MetodaStatyczna(parametr));</code></pre>
+					<pre><code>Assert.Throws&lt;ArgumentException&gt;(() => Klasa.MetodaStatyczna(parametr));</code></pre>
 				</section>
 				<section>
 					<p>Assert.That + ThrowsConstraint</p>
 					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/constraints/ThrowsConstraint.html">Dokumentacja</a></p>
-					<pre><code>Assert.That(SomeMethod, Throws.TypeOf<ArgumentException>());</code></pre>
+					<pre><code>Assert.That(SomeMethod, Throws.TypeOf&lt;ArgumentException&gt;());</code></pre>
 				</section>
 			</section>
 
