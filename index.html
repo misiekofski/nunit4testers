@@ -61,12 +61,12 @@
 					</ul>
 				</section>
 				<section>
-					<p>Ważne atrybuty: <pre><code>[Setup]</code></pre></p>
 					<p>Uruchamiany przed każdym testem</p>
+					<p>Ważne atrybuty: <pre><code>[Setup]</code></pre></p>
 				</section>
 				<section>
-					<p>Ważne atrybuty: <pre><code>[TearDown]</code></pre></p>
 					<p>Uruchamiany po każdym teście</p>
+					<p>Ważne atrybuty: <pre><code>[TearDown]</code></pre></p>
 				</section>
 			</section>
 
@@ -76,37 +76,36 @@
 					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/classic-assertions/Assert.True.html">Dokumentacja</a></p>
 				</section>
 				<section>
-					<p><pre><code>Assert.True( bool condition );</code></pre></p>
 					<p>Sprawdzamy czy warunek jest True</p>
-					<p><pre><code>Assert.False( bool condition );</code></pre></p>
+					<p><pre><code>Assert.True( bool condition );</code></pre></p>
 					<p>Sprawdzamy czy warunek jest False</p>
+					<p><pre><code>Assert.False( bool condition );</code></pre></p>
 				</section>
 				<section>
-					<p><pre><code>Assert.AreEqual( object expected, object actual );</code></pre></p>
 					<p>Sprawdzamy czy obiekty (lub typy proste) są sobie równe</p>
-				</section>
-				<section>
 					<p><pre><code>Assert.AreEqual( object expected, object actual );</code></pre></p>
-					<p>Sprawdzamy czy obiekty (lub typy proste) są sobie równe</p>
 				</section>
 				<section>
-					<p><pre><code>StringAssert</code></pre></p>
+					<p>Sprawdzamy czy obiekty (lub typy proste) są sobie równe</p>
+					<p><pre><code>Assert.AreEqual( object expected, object actual );</code></pre></p>
+				</section>
+				<section>					
 					<p>Asercje przewidziane dla stringów</p>
+					<p><pre><code>StringAssert</code></pre></p>
 					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/classic-assertions/String-Assert.html">Dokumentacja</a></p>
 				</section>
 				<section>
-					<p><pre><code>CollectionAssert</code></pre></p>
 					<p>Asercje przewidziane dla struktur danych (list, słowników, tablic..)</p>
+					<p><pre><code>CollectionAssert</code></pre></p>
 					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/classic-assertions/Collection-Assert.html">Dokumentacja</a></p>
 				</section>
 
 				<section>
-					<p><pre><code>Assert.That</code></pre></p>
 					<p>Constrainty (ograniczenia)</p>
+					<p><pre><code>Assert.That</code></pre></p>
 					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html">Dokumentacja</a></p>
 					<p><pre><code>Assert.That(message, Is.EqualTo("Parameter cannot be zero"));
-Assert.That(result, Is.LessThanOrEqualTo(1000));
-					</code></pre></p>
+Assert.That(result, Is.LessThanOrEqualTo(1000));</code></pre></p>
 				</section>
 			</section>
 
@@ -114,17 +113,45 @@ Assert.That(result, Is.LessThanOrEqualTo(1000));
 				<section>
 					<h2>Parametryzacja</h2>
 				</section>
+
+				<section>
+					<p>Możemy dodać w prosty sposób parametry do testu. Taki dekorator uruchomi test dodawania dwa razy z różnymi danymi.</p>
+					<pre><code>[TestCase(3, 1, 2)]
+[TestCase(0, 0, 0)]
+public void TestAddFunction(int result, int a, int b)</code></pre>
+				</section>
+				
+				<section>
+					<p>Testowanie zakresu też jest możliwe (ten test uruchomi się dla liczb od 5 do 55)</p>
+					<pre><code>[Test]
+public void TestRange([Range(5,55)] int i)</code></pre>
+				</section>
+
 			</section>
 
 			<section>
 				<section>
 					<h2>Powtarzanie</h2>
 				</section>
+				<section>
+					<p>Możemy automatycznie powtórzyć test, jeżeli zakończy się failem (podając maksymalną liczbę powtórzeń)</p>
+					<pre><code>[Test, Retry(5)]</code></pre>
+				</section>
 			</section>
 
 			<section>
 				<section>
 					<h2>Testowanie wyjątków</h2>
+				</section>
+				<section>
+					<p>Assert.Throws (zwraca nam wyjątek, możemy później sprawdzić jego wiadomość)</p>
+					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/classic-assertions/Assert.Throws.html">Dokumentacja</a></p>
+					<pre><code>Assert.Throws<ArgumentException>(() => Klasa.MetodaStatyczna(parametr));</code></pre>
+				</section>
+				<section>
+					<p>Assert.That + ThrowsConstraint</p>
+					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/constraints/ThrowsConstraint.html">Dokumentacja</a></p>
+					<pre><code>Assert.That(SomeMethod, Throws.TypeOf<ArgumentException>());</code></pre>
 				</section>
 			</section>
 
