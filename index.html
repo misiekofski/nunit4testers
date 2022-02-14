@@ -46,19 +46,67 @@
 				</section>
 				<section>
 					<p>Popularną praktyką jest tworzenie projektu testowego w tej samej solucji co projekt główny (testowany).</p>
-					<p>W ten sposób skonfigurowane jest <a href="https://github.com/misiekofski/NUnitForTesters">repo</a></p>
+					<p>W ten sposób skonfigurowane jest ćwiczeniowe <a href="https://github.com/misiekofski/NUnitForTesters">repo</a></p>
 				</section>
 			</section>
 
 			<section>
 				<section>
-					<h2>Pierwszy test</h2>
+					<h2>Jak napisać pierwszy test</h2>
+					<ul>
+						<li>Tworzymy funkcję w klasie z sufiksem *Tests</li>
+						<li>Klasę dekorujemy atrybutem <pre><code>[Test]</code></pre></li>
+						<li>Robimy Build projektu</li>
+						<li>Uruchamiamy test włączajac z menu głównego <pre>Test -> Test Explorer</pre></li>
+					</ul>
+				</section>
+				<section>
+					<p>Ważne atrybuty: <pre><code>[Setup]</code></pre></p>
+					<p>Uruchamiany przed każdym testem</p>
+				</section>
+				<section>
+					<p>Ważne atrybuty: <pre><code>[TearDown]</code></pre></p>
+					<p>Uruchamiany po każdym teście</p>
 				</section>
 			</section>
 
 			<section>
 				<section>
 					<h2>Asercje</h2>
+					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/classic-assertions/Assert.True.html">Dokumentacja</a></p>
+				</section>
+				<section>
+					<p><pre><code>Assert.True( bool condition );</code></pre></p>
+					<p>Sprawdzamy czy warunek jest True</p>
+					<p><pre><code>Assert.False( bool condition );</code></pre></p>
+					<p>Sprawdzamy czy warunek jest False</p>
+				</section>
+				<section>
+					<p><pre><code>Assert.AreEqual( object expected, object actual );</code></pre></p>
+					<p>Sprawdzamy czy obiekty (lub typy proste) są sobie równe</p>
+				</section>
+				<section>
+					<p><pre><code>Assert.AreEqual( object expected, object actual );</code></pre></p>
+					<p>Sprawdzamy czy obiekty (lub typy proste) są sobie równe</p>
+				</section>
+				<section>
+					<p><pre><code>StringAssert</code></pre></p>
+					<p>Asercje przewidziane dla stringów</p>
+					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/classic-assertions/String-Assert.html">Dokumentacja</a></p>
+				</section>
+				<section>
+					<p><pre><code>CollectionAssert</code></pre></p>
+					<p>Asercje przewidziane dla struktur danych (list, słowników, tablic..)</p>
+					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/classic-assertions/Collection-Assert.html">Dokumentacja</a></p>
+				</section>
+
+				<section>
+					<p><pre><code>Assert.That</code></pre></p>
+					<p>Constrainty (ograniczenia)</p>
+					<p><a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html">Dokumentacja</a></p>
+					<p><pre><code>Assert.That(message, Is.EqualTo("Parameter cannot be zero"));
+Assert.That(result, Is.LessThanOrEqualTo(1000));
+					</code></pre></p>
 				</section>
 			</section>
 
