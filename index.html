@@ -107,6 +107,15 @@
 					<p><pre><code>Assert.That(message, Is.EqualTo("Parameter cannot be zero"));
 Assert.That(result, Is.LessThanOrEqualTo(1000));</code></pre></p>
 				</section>
+
+				<section>
+					<p>Multiple asserts</p>
+					<pre><code>Assert.Multiple(() =>
+{
+	Assert.AreEqual(3, 2+1);
+	Assert.AreEqual(5, 2+3);
+});</code></pre>
+				</section>
 			</section>
 
 			<section>
